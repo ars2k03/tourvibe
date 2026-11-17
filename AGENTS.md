@@ -8,6 +8,7 @@ This document defines the strict development standards, architectural rules, and
 - **ForegX Instruction Compliance**: The requirements, specifications, and architecture rules defined in `ForegX Project Upgrade with AI instruction.docx` (at project root) must be implemented and followed **line by line** without exception.
 - **Tech Stack Law (`TECHSTACK.md`)**: All tools, runtimes, frameworks, and package dependencies must strictly follow the exact versions defined in `TECHSTACK.md`. No unauthorized libraries, legacy tools, or unofficial version ranges are permitted.
 - **Architecture Law (`STRUCTURE.md`)**: The directory tree, file locations, naming conventions, and modular boundaries must strictly adhere to `STRUCTURE.md`.
+- **Design System Law (`DESIGN.md`)**: All frontend UI/UX development, styling, color tokens ("Oxford Navy & Crisp White"), typography (sans + editorial serif + mono), zero-gradient policy, and component styling must strictly follow `DESIGN.md`.
 - **Absolute Scope Control**: No implementation, deviation, or modification outside of these core documents is permitted under any circumstances.
 
 ---
@@ -28,7 +29,7 @@ This document defines the strict development standards, architectural rules, and
 - **Always Use the Latest Tech Stack & APIs**:
   - **Next.js 16+ & React 19+**: Use modern Server Components, Client Components (`'use client'`), Server Actions / Route Handlers, and modern caching/navigation paradigms.
   - **Tailwind CSS v4+**: Utilize modern Tailwind v4 CSS-first configuration and directives without obsolete Tailwind v3 configuration conventions.
-  - **Express.js & Mongoose 8+**: Use modern async/await, centralized error handling, and modern schema definitions.
+  - **Express.js 5+ & Mongoose 9+**: Use modern async/await, centralized error handling, and modern schema definitions.
   - **Recharts, Embla Carousel, Lucide React, Zod**: Adhere to their latest stable API signatures.
 - **Never Use Deprecated or Legacy Patterns**:
   - No legacy React lifecycle methods, Pages Router patterns, or deprecated Mongoose callback signatures.
@@ -52,10 +53,12 @@ This document defines the strict development standards, architectural rules, and
 ---
 
 ## 5. UI/UX, Design System & Accessibility
+- **Strict Compliance with DESIGN.md**:
+  - The UI design must strictly implement the "Oxford Navy & Crisp White" color palette, typography hierarchy (modern sans + editorial serif italic accents + monospaced metadata), and Zero-Gradient Policy detailed in `DESIGN.md`.
 - **Design System Constraints**:
   - Maximum 3 primary colors (+ optional neutral palette).
   - Seamless Light Mode and Dark Mode support with proper contrast ratios.
-  - Consistent 4px / 8px spacing grid and unified border radii (e.g., `rounded-xl`).
+  - Consistent 4px / 8px spacing grid and unified border radii (e.g., `rounded-xl` and `rounded-2xl`).
   - Strict responsive behavior across Mobile, Tablet, and Desktop with zero horizontal overflow.
 - **Interactive & Dynamic UI**:
   - Interactive elements (carousels, sliders, dynamic statistics, charts).

@@ -10,7 +10,6 @@ tourvibe/
 ├── STRUCTURE.md
 ├── TECHSTACK.md
 ├── ForegX Project Upgrade with AI instruction.docx
-├── package.json
 ├── client/
 └── server/
 ```
@@ -46,6 +45,8 @@ client/
 │   │   │   │   └── page.tsx
 │   │   │   ├── bookings/
 │   │   │   │   └── page.tsx
+│   │   │   ├── settings/
+│   │   │   │   └── page.tsx
 │   │   │   └── admin/
 │   │   │       ├── tours/
 │   │   │       │   ├── page.tsx
@@ -53,7 +54,11 @@ client/
 │   │   │       │       └── page.tsx
 │   │   │       ├── users/
 │   │   │       │   └── page.tsx
-│   │   │       └── reports/
+│   │   │       ├── categories/
+│   │   │       │   └── page.tsx
+│   │   │       ├── reports/
+│   │   │       │   └── page.tsx
+│   │   │       └── settings/
 │   │   │           └── page.tsx
 │   │   ├── about/
 │   │   │   └── page.tsx
@@ -109,12 +114,14 @@ client/
 │   │   ├── auth-service.ts
 │   │   ├── tour-service.ts
 │   │   ├── booking-service.ts
+│   │   ├── review-service.ts
 │   │   └── dashboard-service.ts
 │   ├── types/
 │   │   ├── index.ts
 │   │   ├── tour.ts
 │   │   ├── user.ts
-│   │   └── booking.ts
+│   │   ├── booking.ts
+│   │   └── review.ts
 │   └── lib/
 │       ├── utils.ts
 │       └── validators.ts
@@ -139,24 +146,30 @@ server/
 │   │   ├── Tour.ts
 │   │   ├── Booking.ts
 │   │   ├── Review.ts
+│   │   ├── Category.ts
 │   │   └── Contact.ts
 │   ├── controllers/
 │   │   ├── authController.ts
 │   │   ├── tourController.ts
 │   │   ├── bookingController.ts
+│   │   ├── reviewController.ts
+│   │   ├── categoryController.ts
 │   │   ├── dashboardController.ts
 │   │   └── contactController.ts
 │   ├── routes/
 │   │   ├── authRoutes.ts
 │   │   ├── tourRoutes.ts
 │   │   ├── bookingRoutes.ts
+│   │   ├── reviewRoutes.ts
+│   │   ├── categoryRoutes.ts
 │   │   ├── dashboardRoutes.ts
 │   │   └── contactRoutes.ts
 │   ├── middleware/
 │   │   ├── authMiddleware.ts
 │   │   ├── roleMiddleware.ts
 │   │   ├── errorMiddleware.ts
-│   │   └── validateMiddleware.ts
+│   │   ├── validateMiddleware.ts
+│   │   └── uploadMiddleware.ts
 │   ├── types/
 │   │   ├── express.d.ts
 │   │   └── index.ts
@@ -166,6 +179,7 @@ server/
 │   │   └── seedData.ts
 │   ├── app.ts
 │   └── index.ts
+├── uploads/
 ├── .env.example
 ├── tsconfig.json
 └── package.json
