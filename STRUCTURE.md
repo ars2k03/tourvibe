@@ -207,6 +207,9 @@ server/
 │   └── index.ts
 ├── uploads/
 │   └── .gitkeep
+├── Dockerfile
+├── .dockerignore
+├── docker-compose.yml
 ├── render.yaml
 ├── .env.example
 ├── tsconfig.json

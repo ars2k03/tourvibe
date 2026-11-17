@@ -65,5 +65,6 @@
 | Service | Role |
 | :--- | :--- |
 | Vercel | Frontend |
-| Render / Railway | Backend |
+| Render / Railway (Docker) | Backend |
 | MongoDB Atlas | Database |
+| Docker | Backend container (`server/Dockerfile`, Node `26-alpine`) |

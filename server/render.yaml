@@ -1,11 +1,12 @@
 services:
   - type: web
     name: tourvibe-api
-    runtime: node
+    runtime: docker
     plan: free
     rootDir: server
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
@@ -20,6 +21,14 @@ services:
       - key: CLIENT_URL
         sync: false
       - key: SERVER_URL
+        sync: false
+      - key: DEMO_ADMIN_EMAIL
+        sync: false
+      - key: DEMO_ADMIN_PASSWORD
+        sync: false
+      - key: DEMO_USER_EMAIL
+        sync: false
+      - key: DEMO_USER_PASSWORD
         sync: false
       - key: GOOGLE_CLIENT_ID
         sync: false

@@ -153,8 +153,27 @@ tourvibe/
 | Service | Role |
 | :--- | :--- |
 | Vercel | Frontend (`client/`, see `client/vercel.json`) |
-| Render / Railway | Backend (`server/`, see `server/render.yaml`) |
+| Render / Railway (Docker) | Backend (`server/Dockerfile`, `server/render.yaml`) |
 | MongoDB Atlas | Database |
+
+### Backend Docker (local)
+
+```bash
+cd server
+# fill production keys in .env.render first
+docker compose up --build -d
+```
+
+Health check: `http://localhost:5000/api/health`
+
+### Backend on Render (Docker)
+
+1. New Web Service → connect the repo
+2. Runtime: **Docker**
+3. Root Directory: `server`
+4. Dockerfile path: `./Dockerfile`
+5. Add env vars from `server/.env.render` (`MONGODB_URI`, `JWT_SECRET`, `CLIENT_URL`, `SERVER_URL`, Google keys, etc.)
+6. Deploy — public URL becomes `SERVER_URL` / Google callback host
 
 Set production `CLIENT_URL`, `SERVER_URL`, `MONGODB_URI`, `JWT_SECRET`, and `NEXT_PUBLIC_API_URL` on the respective hosts. Update Google redirect URIs for live domains.
 
