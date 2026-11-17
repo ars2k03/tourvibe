@@ -39,6 +39,7 @@ client/
 │   ├── images/
 │   │   ├── .gitkeep
 │   │   ├── tourvibe-logo.svg
+│   │   ├── tourvibe-logo-dark.svg
 │   │   └── tourvibe-mark.svg
 ├── vercel.json
 ├── src/

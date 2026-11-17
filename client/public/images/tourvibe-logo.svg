@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" fill="none" role="img" aria-labelledby="tourvibeLogoTitle">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 72" fill="none" role="img" aria-labelledby="tourvibeLogoTitle">
   <title id="tourvibeLogoTitle">TourVibe</title>
-  <rect x="0" y="2" width="36" height="36" rx="10" fill="#0B1E3D"/>
-  <circle cx="18" cy="20" r="11" stroke="#F8FAFC" stroke-width="1.75"/>
-  <path d="M18 11.5 L20.8 18.2 L28 20 L20.8 21.8 L18 28.5 L15.2 21.8 L8 20 L15.2 18.2 Z" fill="#F59E0B"/>
-  <circle cx="18" cy="20" r="2.2" fill="#0B1E3D"/>
-  <text x="46" y="26" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="700" letter-spacing="-0.02em" fill="#0B1E3D">TourVibe</text>
+  <rect x="2" y="6" width="60" height="60" rx="16" fill="#0B1E3D"/>
+  <circle cx="32" cy="36" r="18" stroke="#F8FAFC" stroke-width="3"/>
+  <path d="M32 18 L37.2 31.2 L51 36 L37.2 40.8 L32 54 L26.8 40.8 L13 36 L26.8 31.2 Z" fill="#F59E0B"/>
+  <circle cx="32" cy="36" r="4" fill="#0B1E3D"/>
+  <text x="78" y="46" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="32" font-weight="700" letter-spacing="-0.03em" fill="#0B1E3D">TourVibe</text>
 </svg>

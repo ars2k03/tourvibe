@@ -1,8 +1,11 @@
 <div align="center">
 
-<img src="client/public/images/tourvibe-logo.svg" alt="TourVibe logo" width="220" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="client/public/images/tourvibe-logo-dark.svg" />
+  <img src="client/public/images/tourvibe-logo.svg" alt="TourVibe" width="280" height="72" />
+</picture>
 
-# TourVibe
+<br />
 
 **Guided expeditions across Bangladesh**
 
