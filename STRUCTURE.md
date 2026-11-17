@@ -9,6 +9,7 @@ tourvibe/
 ├── AGENTS.md
 ├── STRUCTURE.md
 ├── TECHSTACK.md
+├── DESIGN.md
 ├── ForegX Project Upgrade with AI instruction.docx
 ├── client/
 └── server/
