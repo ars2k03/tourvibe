@@ -10,6 +10,7 @@ tourvibe/
 ├── STRUCTURE.md
 ├── TECHSTACK.md
 ├── DESIGN.md
+├── README.md
 ├── ForegX Project Upgrade with AI instruction.docx
 ├── client/
 └── server/
@@ -23,7 +24,9 @@ tourvibe/
 client/
 ├── public/
 │   ├── images/
+│   │   └── .gitkeep
 │   └── favicon.ico
+├── vercel.json
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx
@@ -37,6 +40,7 @@ client/
 │   │   │       └── page.tsx
 │   │   ├── tours/
 │   │   │   ├── page.tsx
+│   │   │   ├── tours-explorer.tsx
 │   │   │   └── [id]/
 │   │   │       └── page.tsx
 │   │   ├── dashboard/
@@ -51,8 +55,11 @@ client/
 │   │   │   └── admin/
 │   │   │       ├── tours/
 │   │   │       │   ├── page.tsx
-│   │   │       │   └── create/
-│   │   │       │       └── page.tsx
+│   │   │       │   ├── create/
+│   │   │       │   │   └── page.tsx
+│   │   │       │   └── [id]/
+│   │   │       │       └── edit/
+│   │   │       │           └── page.tsx
 │   │   │       ├── users/
 │   │   │       │   └── page.tsx
 │   │   │       ├── categories/
@@ -83,7 +90,8 @@ client/
 │   │   │   ├── navbar.tsx
 │   │   │   ├── footer.tsx
 │   │   │   ├── theme-toggle.tsx
-│   │   │   └── pagination.tsx
+│   │   │   ├── pagination.tsx
+│   │   │   └── providers.tsx
 │   │   ├── home/
 │   │   │   ├── hero-carousel.tsx
 │   │   │   ├── destination-categories.tsx
@@ -103,7 +111,8 @@ client/
 │   │       ├── tour-card.tsx
 │   │       ├── tour-filters.tsx
 │   │       ├── tour-gallery.tsx
-│   │       └── booking-modal.tsx
+│   │       ├── booking-modal.tsx
+│   │       └── review-form.tsx
 │   ├── context/
 │   │   ├── auth-context.tsx
 │   │   └── theme-provider.tsx
@@ -181,6 +190,8 @@ server/
 │   ├── app.ts
 │   └── index.ts
 ├── uploads/
+│   └── .gitkeep
+├── render.yaml
 ├── .env.example
 ├── tsconfig.json
 └── package.json
