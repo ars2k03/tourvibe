@@ -1,0 +1,90 @@
+"use client";
+
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { contactSchema } from "@/lib/validators";
+import { getErrorMessage } from "@/services/api-client";
+import { submitContact } from "@/services/dashboard-service";
+
+type ContactForm = z.infer<typeof contactSchema>;
+
+export default function ContactPage() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactForm>({
+    resolver: zodResolver(contactSchema),
+  });
+
+  async function onSubmit(values: ContactForm) {
+    try {
+      await submitContact(values);
+      toast.success("Message received. We will reply within 24 hours.");
+      reset();
+    } catch (error) {
+      toast.error(getErrorMessage(error, "Unable to send message"));
+    }
+  }
+
+  return (
+    <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-2 sm:px-6 lg:px-8">
+      <div>
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
+          Contact
+        </p>
+        <h1 className="mt-2 text-3xl font-semibold text-slate-900 dark:text-white">
+          Speak with the travel desk
+        </h1>
+        <p className="mt-3 text-slate-500">
+          Planning a corporate offsite, private Sundarbans charter, or a family
+          highland weekend? Send details and we will respond with availability.
+        </p>
+        <div className="mt-8 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+          <p>Level 5, Gulshan Avenue, Dhaka 1212</p>
+          <p>+880 1711-001122</p>
+          <p>hello@tourvibe.com</p>
+          <p>Desk hours: Sat–Thu, 10:00–19:00</p>
+        </div>
+      </div>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="space-y-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0F172A] p-6"
+      >
+        <Input label="Name" error={errors.name?.message} {...register("name")} />
+        <Input
+          label="Email"
+          type="email"
+          error={errors.email?.message}
+          {...register("email")}
+        />
+        <Input
+          label="Subject"
+          error={errors.subject?.message}
+          {...register("subject")}
+        />
+        <div className="space-y-1.5">
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500">
+            Message
+          </label>
+          <textarea
+            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm"
+            rows={5}
+            {...register("message")}
+          />
+          {errors.message ? (
+            <p className="text-xs text-red-500">{errors.message.message}</p>
+          ) : null}
+        </div>
+        <Button type="submit" loading={isSubmitting} className="w-full">
+          Send message
+        </Button>
+      </form>
+    </div>
+  );
+}
