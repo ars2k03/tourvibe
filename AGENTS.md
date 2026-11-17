@@ -4,6 +4,14 @@ This document defines the strict development standards, architectural rules, and
 
 ---
 
+## 0. Non-Negotiable Source of Truth & Execution Mandate
+- **ForegX Instruction Compliance**: The requirements, specifications, and architecture rules defined in `ForegX Project Upgrade with AI instruction.docx` (at project root) must be implemented and followed **line by line** without exception.
+- **Tech Stack Law (`TECHSTACK.md`)**: All tools, runtimes, frameworks, and package dependencies must strictly follow the exact versions defined in `TECHSTACK.md`. No unauthorized libraries, legacy tools, or unofficial version ranges are permitted.
+- **Architecture Law (`STRUCTURE.md`)**: The directory tree, file locations, naming conventions, and modular boundaries must strictly adhere to `STRUCTURE.md`.
+- **Absolute Scope Control**: No implementation, deviation, or modification outside of these core documents is permitted under any circumstances.
+
+---
+
 ## 1. Architectural Integrity & Clean Code
 - **Modular Architecture**:
   - **Client (`/client`)**: Next.js App Router (`app/`), reusable components (`components/ui/`, `components/shared/`), hooks (`hooks/`), types (`types/`), lib/utilities (`lib/`), and services/API client (`services/`).

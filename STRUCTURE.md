@@ -8,6 +8,8 @@
 tourvibe/
 ├── AGENTS.md
 ├── STRUCTURE.md
+├── TECHSTACK.md
+├── ForegX Project Upgrade with AI instruction.docx
 ├── package.json
 ├── client/
 └── server/
