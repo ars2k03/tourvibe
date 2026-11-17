@@ -55,7 +55,6 @@
 | `@types/node` | `26.6.6` |
 | `@types/cors` | `2.8.19` |
 | `@types/jsonwebtoken` | `9.0.10` |
-| `@types/bcryptjs` | `3.0.0` |
 | `@types/cookie-parser` | `1.4.10` |
 | `@types/morgan` | `1.9.10` |
 | `@types/multer` | `2.3.0` |

@@ -209,6 +209,7 @@ server/
 │   └── .gitkeep
 ├── Dockerfile
 ├── .dockerignore
+├── .npmrc
 ├── docker-compose.yml
 ├── render.yaml
 ├── .env.example

@@ -2,13 +2,15 @@
 
 FROM node:26-alpine AS deps
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
+ENV NPM_CONFIG_UPDATE_NOTIFIER=false
+COPY package.json package-lock.json .npmrc ./
+RUN npm ci --ignore-scripts
 
 FROM node:26-alpine AS build
 WORKDIR /app
+ENV NPM_CONFIG_UPDATE_NOTIFIER=false
 COPY --from=deps /app/node_modules ./node_modules
-COPY package.json package-lock.json tsconfig.json ./
+COPY package.json package-lock.json tsconfig.json .npmrc ./
 COPY src ./src
 RUN npm run build \
   && npm prune --omit=dev
@@ -17,6 +19,8 @@ FROM node:26-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=5000
+ENV NPM_CONFIG_UPDATE_NOTIFIER=false
+ENV DOTENV_QUIET=true
 
 RUN addgroup -S tourvibe && adduser -S tourvibe -G tourvibe \
   && mkdir -p /app/uploads \
