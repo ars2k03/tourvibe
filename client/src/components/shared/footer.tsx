@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Compass, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
+import { TourVibeLogo } from "@/components/shared/tourvibe-logo";
 
 const links = [
   { href: "/tours", label: "Explore Tours" },
@@ -21,10 +22,7 @@ export function Footer() {
     <footer className="border-t border-slate-200 dark:border-slate-800 bg-[#0B1E3D] text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-3 lg:px-8">
         <div>
-          <div className="flex items-center gap-2 text-lg font-semibold">
-            <Compass className="h-5 w-5" />
-            TourVibe
-          </div>
+          <TourVibeLogo variant="onDark" />
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate-300">
             Curated journeys across Bangladesh — from Sajek ridges to Sundarbans
             mangroves — planned with local guides and transparent logistics.

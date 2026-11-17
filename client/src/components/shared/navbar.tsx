@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Compass, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
+import { TourVibeLogo } from "@/components/shared/tourvibe-logo";
 import { Button } from "@/components/ui/button";
 import { Dropdown, DropdownItem } from "@/components/ui/dropdown";
 import { cn } from "@/lib/utils";
@@ -48,9 +49,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 h-[72px] border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-[#0A0F1D]/95 backdrop-blur-md">
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 font-semibold text-[#0B1E3D] dark:text-white">
-          <Compass className="h-5 w-5" />
-          TourVibe
+        <Link href="/" className="inline-flex items-center">
+          <TourVibeLogo />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">

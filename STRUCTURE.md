@@ -6,11 +6,24 @@
 
 ```text
 tourvibe/
+├── .github/
+│   ├── CODEOWNERS
+│   ├── CONTRIBUTING.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── ISSUE_TEMPLATE/
+│       ├── config.yml
+│       ├── bug_report.md
+│       └── feature_request.md
 ├── AGENTS.md
 ├── STRUCTURE.md
 ├── TECHSTACK.md
 ├── DESIGN.md
 ├── README.md
+├── LICENSE
+├── CODE_OF_CONDUCT.md
+├── SECURITY.md
+├── .gitignore
+├── .gitattributes
 ├── ForegX Project Upgrade with AI instruction.docx
 ├── client/
 └── server/
@@ -24,13 +37,15 @@ tourvibe/
 client/
 ├── public/
 │   ├── images/
-│   │   └── .gitkeep
-│   └── favicon.ico
+│   │   ├── .gitkeep
+│   │   ├── tourvibe-logo.svg
+│   │   └── tourvibe-mark.svg
 ├── vercel.json
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx
 │   │   ├── page.tsx
+│   │   ├── icon.svg
 │   │   ├── not-found.tsx
 │   │   ├── error.tsx
 │   │   ├── (auth)/
@@ -91,7 +106,8 @@ client/
 │   │   │   ├── footer.tsx
 │   │   │   ├── theme-toggle.tsx
 │   │   │   ├── pagination.tsx
-│   │   │   └── providers.tsx
+│   │   │   ├── providers.tsx
+│   │   │   └── tourvibe-logo.tsx
 │   │   ├── home/
 │   │   │   ├── hero-carousel.tsx
 │   │   │   ├── destination-categories.tsx
@@ -178,7 +194,6 @@ server/
 │   │   ├── authMiddleware.ts
 │   │   ├── roleMiddleware.ts
 │   │   ├── errorMiddleware.ts
-│   │   ├── validateMiddleware.ts
 │   │   └── uploadMiddleware.ts
 │   ├── types/
 │   │   ├── express.d.ts

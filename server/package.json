@@ -10,7 +10,7 @@
     "seed": "tsx src/index.ts"
   },
   "keywords": [],
-  "author": "A R S",
+  "author": "Arafat Sohan (A R S)",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "3.0.3",

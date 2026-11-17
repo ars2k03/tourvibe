@@ -1,0 +1,15 @@
+# Default owner for everything in the repo
+*       @ars2k03
+
+# Core docs & governance
+/README.md       @ars2k03
+/LICENSE         @ars2k03
+/SECURITY.md     @ars2k03
+/AGENTS.md       @ars2k03
+/STRUCTURE.md    @ars2k03
+/TECHSTACK.md    @ars2k03
+/DESIGN.md       @ars2k03
+
+# Application code
+/client/         @ars2k03
+/server/         @ars2k03

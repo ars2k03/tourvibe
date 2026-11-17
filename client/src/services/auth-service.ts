@@ -31,20 +31,6 @@ export async function getMeRequest() {
   return data.data.user;
 }
 
-export async function updateProfileRequest(payload: {
-  name?: string;
-  phone?: string;
-  bio?: string;
-  password?: string;
-  avatar?: string;
-}) {
-  const { data } = await apiClient.patch<ApiResponse<{ user: User }>>(
-    "/auth/profile",
-    payload,
-  );
-  return data.data.user;
-}
-
 export async function updateProfileFormRequest(formData: FormData) {
   const { data } = await apiClient.patch<ApiResponse<{ user: User }>>(
     "/auth/profile",
