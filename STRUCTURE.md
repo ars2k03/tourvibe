@@ -71,6 +71,7 @@ client/
 │   │   │   ├── settings/
 │   │   │   │   └── page.tsx
 │   │   │   └── admin/
+│   │   │       ├── layout.tsx
 │   │   │       ├── tours/
 │   │   │       │   ├── page.tsx
 │   │   │       │   ├── create/
@@ -204,6 +205,7 @@ server/
 │   ├── utils/
 │   │   ├── token.ts
 │   │   ├── apiResponse.ts
+│   │   ├── validators.ts
 │   │   └── seedData.ts
 │   ├── app.ts
 │   └── index.ts

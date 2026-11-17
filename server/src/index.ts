@@ -7,12 +7,9 @@ async function bootstrap(): Promise<void> {
   await connectDB();
   await seedDatabase();
 
-  app.listen(env.PORT, () => {
-    console.log(`TourVibe API listening on port ${env.PORT}`);
-  });
+  app.listen(env.PORT);
 }
 
-bootstrap().catch((error: unknown) => {
-  console.error("Failed to start server", error);
+bootstrap().catch(() => {
   process.exit(1);
 });

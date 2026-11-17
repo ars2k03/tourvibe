@@ -17,6 +17,8 @@ Curated journeys through Sajek, Cox's Bazar, the Sundarbans, Srimangal, Bandarba
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248.svg)](./TECHSTACK.md)
 [![TypeScript](https://img.shields.io/badge/TypeScript-7-3178C6.svg)](./TECHSTACK.md)
 
+**Live** · [Website](https://tourvibe-ars.vercel.app/) · [API](https://tourvibe-pkjv.onrender.com/api/health) · [GitHub](https://github.com/ars2k03/tourvibe)
+
 </div>
 
 ---
@@ -150,11 +152,14 @@ tourvibe/
 
 ## Deployment
 
-| Service | Role |
-| :--- | :--- |
-| Vercel | Frontend (`client/`, see `client/vercel.json`) |
-| Render / Railway (Docker) | Backend (`server/Dockerfile`, `server/render.yaml`) |
-| MongoDB Atlas | Database |
+| Service | Role | Live URL |
+| :--- | :--- | :--- |
+| Vercel | Frontend (`client/`, see `client/vercel.json`) | https://tourvibe-ars.vercel.app/ |
+| Render (Docker) | Backend (`server/Dockerfile`, `server/render.yaml`) | https://tourvibe-pkjv.onrender.com |
+| MongoDB Atlas | Database | Cloud cluster |
+
+Production env references: `client/.env.vercel`, `server/.env.render` (gitignored).  
+Set Render `CLIENT_URL=https://tourvibe-ars.vercel.app` and Google OAuth authorized origins / redirect URI to the live frontend + `https://tourvibe-pkjv.onrender.com/api/auth/google/callback`.
 
 ### Backend Docker (local)
 
