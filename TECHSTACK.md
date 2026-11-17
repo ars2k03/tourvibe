@@ -32,8 +32,8 @@
 | `@types/node` | `26.6.6` |
 | `@types/react` | `19.3.0` |
 | `@types/react-dom` | `19.3.0` |
-| `eslint` | `10.15.0` |
-| `eslint-config-next` | `16.4.6` |
+| `oxlint` | `1.94.0` |
+| `oxlint-tsgolint` | `7.0.2007` |
 
 ## Backend (`server/`)
 

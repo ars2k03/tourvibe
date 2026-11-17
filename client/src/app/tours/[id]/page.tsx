@@ -162,7 +162,7 @@ export default function TourDetailsPage() {
                     className="rounded-2xl border border-slate-200 dark:border-slate-800 p-4"
                   >
                     <div className="flex items-center gap-3">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      {/* oxlint-disable-next-line nextjs/no-img-element */}
                       <img
                         src={review.user.avatar}
                         alt={review.user.name}

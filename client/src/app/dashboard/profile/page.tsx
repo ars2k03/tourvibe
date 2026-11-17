@@ -66,7 +66,7 @@ export default function ProfilePage() {
         </p>
       </div>
       <div className="flex items-center gap-4 rounded-2xl border border-slate-200 dark:border-slate-800 p-4">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* oxlint-disable-next-line nextjs/no-img-element */}
         <img
           src={preview ?? user?.avatar}
           alt={user?.name}

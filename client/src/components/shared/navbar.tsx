@@ -78,7 +78,7 @@ export function Navbar() {
             <Dropdown
               trigger={
                 <span className="flex items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-700 px-2 py-1.5">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {/* oxlint-disable-next-line nextjs/no-img-element */}
                   <img
                     src={user.avatar}
                     alt={user.name}

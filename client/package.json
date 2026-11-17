@@ -8,7 +8,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "oxlint --type-aware",
+    "lint:fix": "oxlint --type-aware --fix"
   },
   "dependencies": {
     "@hookform/resolvers": "7.0.7",
@@ -31,8 +32,8 @@
     "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "eslint": "10.15.0",
-    "eslint-config-next": "16.4.6",
+    "oxlint": "1.94.0",
+    "oxlint-tsgolint": "7.0.2007",
     "tailwindcss": "4.3.5",
     "typescript": "7.0.2"
   }

@@ -42,6 +42,8 @@ client/
 │   │   ├── tourvibe-logo-dark.svg
 │   │   └── tourvibe-mark.svg
 ├── vercel.json
+├── .npmrc
+├── .oxlintrc.json
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx
