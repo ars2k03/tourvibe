@@ -206,6 +206,7 @@ server/
 │   │   ├── token.ts
 │   │   ├── apiResponse.ts
 │   │   ├── validators.ts
+│   │   ├── ensureAdmin.ts
 │   │   └── seedData.ts
 │   ├── app.ts
 │   └── index.ts

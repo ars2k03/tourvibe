@@ -8,6 +8,7 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/use-auth";
+import { fieldControlClass } from "@/lib/utils";
 import { profileSchema } from "@/lib/validators";
 import { getErrorMessage } from "@/services/api-client";
 import { updateProfileFormRequest } from "@/services/auth-service";
@@ -61,7 +62,7 @@ export default function ProfilePage() {
     <div className="mx-auto max-w-xl space-y-6">
       <div>
         <h1 className="text-2xl font-semibold">Profile</h1>
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-slate-600 dark:text-slate-400">
           Update traveler details, password, and profile photo.
         </p>
       </div>
@@ -74,7 +75,7 @@ export default function ProfilePage() {
         />
         <div>
           <p className="font-semibold">{user?.name}</p>
-          <p className="text-sm text-slate-500">{user?.email}</p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">{user?.email}</p>
           <p className="font-mono text-xs uppercase text-amber-600">{user?.role}</p>
         </div>
       </div>
@@ -82,7 +83,7 @@ export default function ProfilePage() {
         <div className="space-y-1.5">
           <label
             htmlFor="avatar"
-            className="block text-[11px] font-bold uppercase tracking-wider text-slate-500"
+            className="block cursor-pointer text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400"
           >
             Profile image
           </label>
@@ -90,7 +91,7 @@ export default function ProfilePage() {
             id="avatar"
             type="file"
             accept="image/*"
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm"
+            className={`${fieldControlClass} cursor-pointer file:mr-3 file:cursor-pointer file:rounded-md file:border-0 file:bg-slate-100 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-slate-700 hover:file:bg-slate-200 dark:file:bg-slate-800 dark:file:text-slate-200 dark:hover:file:bg-slate-700`}
             onChange={(event) => {
               const file = event.target.files?.[0] ?? null;
               setAvatarFile(file);
@@ -105,13 +106,13 @@ export default function ProfilePage() {
         <div className="space-y-1.5">
           <label
             htmlFor="bio"
-            className="block text-[11px] font-bold uppercase tracking-wider text-slate-500"
+            className="block cursor-pointer text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400"
           >
             Bio
           </label>
           <textarea
             id="bio"
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm"
+            className={fieldControlClass}
             rows={4}
             {...register("bio")}
           />

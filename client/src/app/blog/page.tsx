@@ -47,7 +47,7 @@ const posts = [
 export default function BlogPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
+      <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
         Journal
       </p>
       <h1 className="mt-2 text-3xl font-semibold text-slate-900 dark:text-white">
@@ -57,7 +57,7 @@ export default function BlogPage() {
         {posts.map((post) => (
           <article
             key={post.title}
-            className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0F172A]"
+            className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0F172A] transition-shadow duration-300 hover:shadow-md"
           >
             <div className="relative aspect-[16/10]">
               <Image src={post.image} alt={post.title} fill className="object-cover" sizes="50vw" />
@@ -67,12 +67,12 @@ export default function BlogPage() {
                 <span className="font-mono uppercase tracking-wider text-amber-600">
                   {post.tag}
                 </span>
-                <span className="font-mono text-slate-400">{post.date}</span>
+                <span className="font-mono text-slate-500 dark:text-slate-400">{post.date}</span>
               </div>
               <h2 className="mt-3 text-xl font-semibold text-slate-900 dark:text-white">
                 {post.title}
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-slate-500">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                 {post.excerpt}
               </p>
             </div>

@@ -22,9 +22,9 @@ The palette complies strictly with the design rule of **maximum 3 primary colors
 | **Primary Hover** | **Midnight Blue** | `#152E59` | Hover state for primary buttons and interactive elements |
 | **Surface (Light)** | **Crisp Pure White** | `#FFFFFF` | Main page background, card surfaces, modal dialogs |
 | **Surface Alt (Light)** | **Subtle Slate Tint** | `#F8FAFC` | Alternating section backgrounds, search docks, table headers |
-| **Borders & Dividers** | **Slate Hairline** | `#E2E8F0` | Delicate 1px structural dividing lines |
+| **Borders & Dividers** | **Slate Hairline** | `#E2E8F0` | Delicate 1px structural dividing lines (`border-slate-300` on form controls for clearer light-mode edges) |
 | **Text Primary** | **Ink Slate** | `#0F172A` | High-contrast headings and body prose |
-| **Text Muted / Meta** | **Muted Slate** | `#64748B` | Secondary descriptions, labels, and timestamps |
+| **Text Muted / Meta** | **Muted Slate** | `#475569` | Secondary descriptions, labels, and timestamps |
 | **Dark Mode Surface** | **Deep Obsidian Navy** | `#0A0F1D` | Deep navy canvas for dark mode |
 | **Dark Mode Card** | **Navy Surface** | `#0F172A` | Card backgrounds and elevated panels in dark mode |
 | **Dark Mode Border** | **Dark Slate Border** | `#1E293B` | Hairline borders in dark mode |
@@ -68,8 +68,8 @@ A sophisticated multi-font hierarchy providing distinct character to headings, b
 
 ### 5.1 Buttons
 - **Primary Action**: `bg-[#0B1E3D] hover:bg-[#152E59] text-white font-semibold rounded-lg px-5 py-2.5 transition shadow-sm`.
-- **Secondary Action / Outline**: `bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold rounded-lg px-5 py-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition`.
-- **Ghost Action**: `text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white px-3 py-2 rounded-lg transition`.
+- **Secondary Action / Outline**: `bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold rounded-lg px-5 py-2.5 hover:bg-slate-50 dark:hover:bg-slate-800 transition`.
+- **Ghost Action**: `text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white px-3 py-2 rounded-lg transition`.
 
 ### 5.2 Tour & Content Cards
 - Desktop layout: **Exactly 4 cards per row** on desktop (`grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5`).
@@ -79,8 +79,8 @@ A sophisticated multi-font hierarchy providing distinct character to headings, b
 - Action: "View Details" button linking to details page or opening the quick-view modal.
 
 ### 5.3 Forms & Inputs
-- Container: Clean white surface with `border border-slate-200 dark:border-slate-700 focus:border-[#0B1E3D] focus:ring-1 focus:ring-[#0B1E3D]`.
-- Labels: Small uppercase tracked labels (`text-[11px] font-bold uppercase tracking-wider text-slate-500`).
+- Container: Clean white surface with `border border-slate-300 dark:border-slate-700 focus:border-[#0B1E3D] focus:ring-1 focus:ring-[#0B1E3D]`.
+- Labels: Small uppercase tracked labels (`text-[11px] font-bold uppercase tracking-wider text-slate-600`).
 - Validation: Client and server-side Zod validation with clear error states (`text-red-500 text-xs`).
 
 ### 5.4 Sticky Navbar

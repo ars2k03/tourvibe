@@ -1,5 +1,5 @@
 import { forwardRef, type InputHTMLAttributes } from "react";
-import { cn } from "@/lib/utils";
+import { cn, fieldLabelClass } from "@/lib/utils";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -14,7 +14,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label ? (
           <label
             htmlFor={inputId}
-            className="block text-[11px] font-bold uppercase tracking-wider text-slate-500"
+            className={cn(fieldLabelClass, "cursor-pointer")}
           >
             {label}
           </label>
@@ -22,8 +22,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={ref}
           id={inputId}
+          aria-invalid={error ? true : undefined}
           className={cn(
-            "w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-900 dark:text-slate-100 outline-none transition focus:border-[#0B1E3D] focus:ring-1 focus:ring-[#0B1E3D]",
+            "w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-500 outline-none transition-colors duration-200 focus:border-[#0B1E3D] focus:ring-1 focus:ring-[#0B1E3D] dark:focus:border-amber-400 dark:focus:ring-amber-400 disabled:cursor-not-allowed disabled:opacity-60",
             error && "border-red-500 focus:border-red-500 focus:ring-red-500",
             className,
           )}

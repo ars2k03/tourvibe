@@ -39,17 +39,6 @@ export async function updateProfileFormRequest(formData: FormData) {
   return data.data.user;
 }
 
-export async function getDemoCredentials() {
-  const { data } = await apiClient.get<
-    ApiResponse<{
-      admin: { email: string; password: string };
-      user: { email: string; password: string };
-      googleEnabled?: boolean;
-    }>
-  >("/auth/demo");
-  return data.data;
-}
-
 export function getGoogleAuthUrl(): string {
   return `${API_URL}/auth/google`;
 }

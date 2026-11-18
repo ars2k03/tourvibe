@@ -36,7 +36,7 @@ export default function DashboardPage() {
       <div className="space-y-6">
         <div>
           <h1 className="text-2xl font-semibold">Admin overview</h1>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Live operations snapshot across travelers, tours, and revenue.
           </p>
         </div>
@@ -127,7 +127,7 @@ export default function DashboardPage() {
         <h1 className="text-2xl font-semibold">
           Hello, {user?.name.split(" ")[0]}
         </h1>
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-slate-600 dark:text-slate-400">
           Track upcoming trips, spending, and reviews from one place.
         </p>
       </div>

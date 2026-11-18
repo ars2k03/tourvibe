@@ -48,7 +48,7 @@ export default function TourDetailsPage() {
 
   if (!tour) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-20 text-center text-slate-500">
+      <div className="mx-auto max-w-3xl px-4 py-20 text-center text-slate-600 dark:text-slate-400">
         Tour not found.
       </div>
     );
@@ -71,7 +71,7 @@ export default function TourDetailsPage() {
             <h1 className="mt-3 text-3xl font-semibold text-slate-900 dark:text-white">
               {tour.title}
             </h1>
-            <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-500">
+            <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-600 dark:text-slate-400">
               <span className="inline-flex items-center gap-1">
                 <MapPin className="h-4 w-4" />
                 {tour.location}, {tour.country}
@@ -138,9 +138,9 @@ export default function TourDetailsPage() {
                   key={day.day}
                   className="rounded-2xl border border-slate-200 dark:border-slate-800 p-4"
                 >
-                  <p className="font-mono text-xs text-slate-500">Day {day.day}</p>
+                  <p className="font-mono text-xs text-slate-600 dark:text-slate-400">Day {day.day}</p>
                   <h3 className="mt-1 font-semibold">{day.title}</h3>
-                  <p className="mt-1 text-sm text-slate-500">{day.description}</p>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{day.description}</p>
                 </div>
               ))}
             </div>
@@ -154,7 +154,7 @@ export default function TourDetailsPage() {
             />
             <div className="space-y-4">
               {reviews.length === 0 ? (
-                <p className="text-sm text-slate-500">No reviews yet.</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400">No reviews yet.</p>
               ) : (
                 reviews.map((review) => (
                   <article
@@ -176,7 +176,7 @@ export default function TourDetailsPage() {
                       </div>
                     </div>
                     <h3 className="mt-3 font-semibold">{review.title}</h3>
-                    <p className="mt-1 text-sm text-slate-500">{review.comment}</p>
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{review.comment}</p>
                   </article>
                 ))
               )}
@@ -185,18 +185,18 @@ export default function TourDetailsPage() {
         </div>
 
         <aside className="h-fit rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0F172A] p-6 shadow-sm lg:sticky lg:top-24">
-          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
             From
           </p>
           <p className="mt-1 font-mono text-3xl font-semibold text-[#0B1E3D] dark:text-white">
             {formatPrice(price, tour.currency)}
           </p>
           {tour.discountPercent > 0 ? (
-            <p className="font-mono text-sm text-slate-400 line-through">
+            <p className="font-mono text-sm text-slate-500 dark:text-slate-400 line-through">
               {formatPrice(tour.price, tour.currency)}
             </p>
           ) : null}
-          <div className="mt-6 space-y-2 text-sm text-slate-500">
+          <div className="mt-6 space-y-2 text-sm text-slate-600 dark:text-slate-400">
             <p>Upcoming departures:</p>
             {tour.startDates.slice(0, 3).map((date) => (
               <p key={date} className="font-mono text-slate-700 dark:text-slate-200">

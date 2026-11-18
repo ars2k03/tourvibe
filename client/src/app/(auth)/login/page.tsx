@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
@@ -10,11 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/use-auth";
 import { loginSchema } from "@/lib/validators";
-import {
-  getDemoCredentials,
-  getGoogleAuthUrl,
-  getMeRequest,
-} from "@/services/auth-service";
+import { getGoogleAuthUrl, getMeRequest } from "@/services/auth-service";
 import { getErrorMessage } from "@/services/api-client";
 import { z } from "zod";
 
@@ -24,26 +20,14 @@ function LoginFormView() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { login, setUser } = useAuth();
-  const [demo, setDemo] = useState<{
-    admin: { email: string; password: string };
-    user: { email: string; password: string };
-    googleEnabled?: boolean;
-  } | null>(null);
 
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors, isSubmitting },
   } = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
   });
-
-  useEffect(() => {
-    getDemoCredentials()
-      .then(setDemo)
-      .catch(() => setDemo(null));
-  }, []);
 
   useEffect(() => {
     const token = searchParams.get("token");
@@ -84,7 +68,7 @@ function LoginFormView() {
       <h1 className="text-3xl font-semibold text-slate-900 dark:text-white">
         Welcome back
       </h1>
-      <p className="mt-2 text-sm text-slate-500">
+      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
         Sign in to manage bookings and continue planning your next expedition.
       </p>
       <form className="mt-8 space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -109,52 +93,17 @@ function LoginFormView() {
 
       <a
         href={getGoogleAuthUrl()}
-        className="mt-3 inline-flex w-full items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800"
+        className="mt-3 inline-flex w-full cursor-pointer items-center justify-center rounded-lg border border-slate-300 dark:border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-800 transition-colors duration-200 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1E3D] dark:focus-visible:ring-amber-400"
       >
         Continue with Google
       </a>
-      {demo && !demo.googleEnabled ? (
-        <p className="mt-2 text-xs text-slate-500">
-          Google OAuth activates when `GOOGLE_CLIENT_ID` and
-          `GOOGLE_CLIENT_SECRET` are set on the API.
-        </p>
-      ) : null}
 
-      {demo ? (
-        <div className="mt-6 space-y-2 rounded-2xl border border-slate-200 dark:border-slate-800 p-4">
-          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-            Demo login
-          </p>
-          <div className="flex flex-wrap gap-2">
-            <Button
-              type="button"
-              variant="secondary"
-              size="sm"
-              onClick={() => {
-                setValue("email", demo.user.email);
-                setValue("password", demo.user.password);
-              }}
-            >
-              Traveler demo
-            </Button>
-            <Button
-              type="button"
-              variant="secondary"
-              size="sm"
-              onClick={() => {
-                setValue("email", demo.admin.email);
-                setValue("password", demo.admin.password);
-              }}
-            >
-              Admin demo
-            </Button>
-          </div>
-        </div>
-      ) : null}
-
-      <p className="mt-6 text-sm text-slate-500">
+      <p className="mt-6 text-sm text-slate-600 dark:text-slate-400">
         New to TourVibe?{" "}
-        <Link href="/register" className="font-semibold text-[#0B1E3D] dark:text-amber-300">
+        <Link
+          href="/register"
+          className="font-semibold text-[#0B1E3D] transition-colors duration-200 hover:text-[#152E59] dark:text-amber-300 dark:hover:text-amber-200 focus-visible:outline-none focus-visible:underline"
+        >
           Create an account
         </Link>
       </p>
@@ -166,7 +115,7 @@ export default function LoginPage() {
   return (
     <Suspense
       fallback={
-        <div className="mx-auto max-w-md px-4 py-16 text-sm text-slate-500">
+        <div className="mx-auto max-w-md px-4 py-16 text-sm text-slate-600 dark:text-slate-400">
           Loading login...
         </div>
       }

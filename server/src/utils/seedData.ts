@@ -21,38 +21,16 @@ export async function seedDatabase(): Promise<void> {
     Contact.deleteMany({}),
   ]);
 
-  const [admin, traveler, travelerTwo] = await User.create([
-    {
-      name: "Nusrat Rahman",
-      email: env.DEMO_ADMIN_EMAIL,
-      password: env.DEMO_ADMIN_PASSWORD,
-      role: "admin",
-      phone: "+8801711001122",
-      bio: "TourVibe operations lead based in Dhaka.",
-      avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop",
-    },
-    {
-      name: "Arif Hasan",
-      email: env.DEMO_USER_EMAIL,
-      password: env.DEMO_USER_PASSWORD,
-      role: "user",
-      phone: "+8801811223344",
-      bio: "Weekend trekker exploring Bangladesh hill tracts.",
-      avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
-    },
-    {
-      name: "Maliha Chowdhury",
-      email: "maliha@tourvibe.com",
-      password: "Travel@123",
-      role: "user",
-      phone: "+8801911556677",
-      bio: "Food and culture traveler.",
-      avatar:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop",
-    },
-  ]);
+  await User.create({
+    name: "TourVibe Admin",
+    email: env.ADMIN_EMAIL,
+    password: env.ADMIN_PASSWORD,
+    role: "admin",
+    phone: "+8801711001122",
+    bio: "TourVibe operations lead based in Dhaka.",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop",
+  });
 
   const categories = await Category.create([
     {
@@ -91,7 +69,7 @@ export async function seedDatabase(): Promise<void> {
 
   const [hill, coast, wildlife, tea] = categories;
 
-  const tours = await Tour.create([
+  await Tour.create([
     {
       title: "Sajek Valley Mist Ridge Expedition",
       slug: "sajek-valley-mist-ridge-expedition",
@@ -154,8 +132,8 @@ export async function seedDatabase(): Promise<void> {
         new Date("2026-12-19"),
         new Date("2027-01-09"),
       ],
-      ratingAverage: 4.8,
-      ratingCount: 2,
+      ratingAverage: 0,
+      ratingCount: 0,
     },
     {
       title: "Cox's Bazar Sunrise & Island Circuit",
@@ -217,8 +195,8 @@ export async function seedDatabase(): Promise<void> {
       ],
       isFeatured: true,
       startDates: [new Date("2026-12-12"), new Date("2027-01-16")],
-      ratingAverage: 4.6,
-      ratingCount: 1,
+      ratingAverage: 0,
+      ratingCount: 0,
     },
     {
       title: "Sundarbans Tiger Trail Safari",
@@ -275,8 +253,8 @@ export async function seedDatabase(): Promise<void> {
       ],
       isFeatured: true,
       startDates: [new Date("2026-12-20"), new Date("2027-01-24")],
-      ratingAverage: 4.9,
-      ratingCount: 1,
+      ratingAverage: 0,
+      ratingCount: 0,
     },
     {
       title: "Srimangal Tea Estate Immersion",
@@ -333,8 +311,8 @@ export async function seedDatabase(): Promise<void> {
       ],
       isFeatured: true,
       startDates: [new Date("2026-12-08"), new Date("2027-01-05")],
-      ratingAverage: 4.7,
-      ratingCount: 1,
+      ratingAverage: 0,
+      ratingCount: 0,
     },
     {
       title: "Bandarban Nilgiri & Chimbuk Heights",
@@ -396,8 +374,8 @@ export async function seedDatabase(): Promise<void> {
       ],
       isFeatured: false,
       startDates: [new Date("2027-01-02"), new Date("2027-02-06")],
-      ratingAverage: 4.5,
-      ratingCount: 1,
+      ratingAverage: 0,
+      ratingCount: 0,
     },
     {
       title: "Kuakata Mother-of-the-Sea Weekend",
@@ -454,8 +432,8 @@ export async function seedDatabase(): Promise<void> {
       ],
       isFeatured: false,
       startDates: [new Date("2026-12-26"), new Date("2027-01-30")],
-      ratingAverage: 4.4,
-      ratingCount: 1,
+      ratingAverage: 0,
+      ratingCount: 0,
     },
     {
       title: "Sylhet Ratargul Swamp Forest Day Cruise",
@@ -498,8 +476,8 @@ export async function seedDatabase(): Promise<void> {
       ],
       isFeatured: false,
       startDates: [new Date("2026-12-14"), new Date("2027-01-11")],
-      ratingAverage: 4.3,
-      ratingCount: 1,
+      ratingAverage: 0,
+      ratingCount: 0,
     },
     {
       title: "Jaflong & Tamabil Border Hills Escape",
@@ -551,137 +529,8 @@ export async function seedDatabase(): Promise<void> {
       ],
       isFeatured: true,
       startDates: [new Date("2026-12-18"), new Date("2027-01-22")],
-      ratingAverage: 4.6,
-      ratingCount: 1,
-    },
-  ]);
-
-  const [
-    sajek,
-    cox,
-    sundarbans,
-    srimangal,
-    bandarban,
-    kuakata,
-    ratargul,
-    jaflong,
-  ] = tours;
-
-  await Review.create([
-    {
-      user: traveler!._id,
-      tour: sajek!._id,
-      rating: 5,
-      title: "Clouds beneath our cottage",
-      comment:
-        "Konglak sunrise was flawless. Logistics from Dhaka felt seamless and the bamboo cottage stayed warm overnight.",
-    },
-    {
-      user: travelerTwo!._id,
-      tour: sajek!._id,
-      rating: 5,
-      title: "Perfect first highland trip",
-      comment:
-        "Guide paced the walks well for mixed fitness levels. Food portions were generous and authentic.",
-    },
-    {
-      user: traveler!._id,
-      tour: cox!._id,
-      rating: 4,
-      title: "Saint Martin's day well organized",
-      comment:
-        "Ferry timing and island lunch were handled professionally. Would love an optional night stay next season.",
-    },
-    {
-      user: travelerTwo!._id,
-      tour: sundarbans!._id,
-      rating: 5,
-      title: "Responsible mangrove safari",
-      comment:
-        "Naturalist explanations were excellent. Spotted deer every morning and a calm night under clear skies.",
-    },
-    {
-      user: traveler!._id,
-      tour: srimangal!._id,
-      rating: 5,
-      title: "Tea tasting highlight",
-      comment:
-        "Seven-layer tea workshop and Lawachara walk made this the most relaxing weekend I've booked.",
-    },
-    {
-      user: travelerTwo!._id,
-      tour: bandarban!._id,
-      rating: 4,
-      title: "Boga Lake trek worth the effort",
-      comment:
-        "Challenging but rewarding. Nilgiri lodging views alone justify the itinerary.",
-    },
-    {
-      user: traveler!._id,
-      tour: kuakata!._id,
-      rating: 4,
-      title: "Quiet coastal reset",
-      comment:
-        "Sunrise and sunset on the same beach felt magical. Fatra walk was short but scenic.",
-    },
-    {
-      user: travelerTwo!._id,
-      tour: ratargul!._id,
-      rating: 4,
-      title: "Unique swamp forest day",
-      comment:
-        "Boat channels were peaceful after the rains. Lunch with the host family was a nice touch.",
-    },
-    {
-      user: traveler!._id,
-      tour: jaflong!._id,
-      rating: 5,
-      title: "Border hills in two days",
-      comment:
-        "Compact itinerary with strong views. Lodge was clean and the citrus stop was unexpected fun.",
-    },
-  ]);
-
-  await Booking.create([
-    {
-      user: traveler!._id,
-      tour: sajek!._id,
-      guests: 2,
-      startDate: new Date("2026-12-05"),
-      totalPrice: 22500,
-      currency: "BDT",
-      status: "confirmed",
-      specialRequests: "Vegetarian dinners preferred.",
-    },
-    {
-      user: traveler!._id,
-      tour: cox!._id,
-      guests: 3,
-      startDate: new Date("2026-12-12"),
-      totalPrice: 53865,
-      currency: "BDT",
-      status: "pending",
-      specialRequests: "",
-    },
-    {
-      user: travelerTwo!._id,
-      tour: sundarbans!._id,
-      guests: 2,
-      startDate: new Date("2026-12-20"),
-      totalPrice: 33000,
-      currency: "BDT",
-      status: "confirmed",
-      specialRequests: "Lower bunk preferred.",
-    },
-    {
-      user: travelerTwo!._id,
-      tour: srimangal!._id,
-      guests: 2,
-      startDate: new Date("2026-11-01"),
-      totalPrice: 18032,
-      currency: "BDT",
-      status: "completed",
-      specialRequests: "",
+      ratingAverage: 0,
+      ratingCount: 0,
     },
   ]);
 

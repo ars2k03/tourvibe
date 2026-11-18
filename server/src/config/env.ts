@@ -11,10 +11,8 @@ const envSchema = z.object({
   JWT_EXPIRES_IN: z.string().default("7d"),
   CLIENT_URL: z.string().url().default("http://localhost:3000"),
   SERVER_URL: z.string().url().default("http://localhost:5000"),
-  DEMO_ADMIN_EMAIL: z.string().email().default("admin@tourvibe.com"),
-  DEMO_ADMIN_PASSWORD: z.string().min(6).default("Admin@123"),
-  DEMO_USER_EMAIL: z.string().email().default("traveler@tourvibe.com"),
-  DEMO_USER_PASSWORD: z.string().min(6).default("Travel@123"),
+  ADMIN_EMAIL: z.string().email(),
+  ADMIN_PASSWORD: z.string().min(6),
   GOOGLE_CLIENT_ID: z.string().optional().default(""),
   GOOGLE_CLIENT_SECRET: z.string().optional().default(""),
   GOOGLE_CALLBACK_URL: z

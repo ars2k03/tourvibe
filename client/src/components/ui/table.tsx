@@ -18,7 +18,7 @@ export function Table({
 export function THead(props: HTMLAttributes<HTMLTableSectionElement>) {
   return (
     <thead
-      className="bg-[#F8FAFC] dark:bg-slate-900/80 text-left text-[11px] uppercase tracking-wider text-slate-500"
+      className="bg-[#F8FAFC] dark:bg-slate-900/80 text-left text-[11px] uppercase tracking-wider text-slate-600 dark:text-slate-400"
       {...props}
     />
   );

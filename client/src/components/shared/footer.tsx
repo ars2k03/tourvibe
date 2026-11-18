@@ -35,7 +35,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="inline-flex h-9 min-w-9 items-center justify-center rounded-lg border border-white/15 px-2 font-mono text-xs uppercase tracking-wide text-slate-200 hover:bg-white/10 hover:text-white"
+                className="inline-flex h-9 min-w-9 cursor-pointer items-center justify-center rounded-lg border border-white/15 px-2 font-mono text-xs uppercase tracking-wide text-slate-200 transition-colors duration-200 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
               >
                 {social.label}
               </a>
@@ -44,7 +44,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+          <h3 className="text-[11px] font-bold uppercase tracking-wider text-slate-300">
             Navigate
           </h3>
           <ul className="mt-4 space-y-2">
@@ -52,7 +52,7 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm text-slate-200 hover:text-white"
+                  className="text-sm text-slate-200 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:underline"
                 >
                   {link.label}
                 </Link>
@@ -62,7 +62,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+          <h3 className="text-[11px] font-bold uppercase tracking-wider text-slate-300">
             Travel Desk
           </h3>
           <ul className="mt-4 space-y-3 text-sm text-slate-200">
@@ -70,13 +70,23 @@ export function Footer() {
               <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
               Level 5, Gulshan Avenue, Dhaka 1212
             </li>
-            <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 shrink-0" />
-              +880 1711-001122
+            <li>
+              <a
+                href="tel:+8801711001122"
+                className="inline-flex items-center gap-2 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:underline"
+              >
+                <Phone className="h-4 w-4 shrink-0" />
+                +880 1711-001122
+              </a>
             </li>
-            <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 shrink-0" />
-              hello@tourvibe.com
+            <li>
+              <a
+                href="mailto:hello@tourvibe.com"
+                className="inline-flex items-center gap-2 transition-colors duration-200 hover:text-white focus-visible:outline-none focus-visible:underline"
+              >
+                <Mail className="h-4 w-4 shrink-0" />
+                hello@tourvibe.com
+              </a>
             </li>
           </ul>
         </div>

@@ -166,28 +166,6 @@ export async function updateProfile(
   }
 }
 
-export async function getDemoCredentials(
-  _req: Request,
-  res: Response,
-  next: NextFunction,
-): Promise<void> {
-  try {
-    sendSuccess(res, {
-      admin: {
-        email: env.DEMO_ADMIN_EMAIL,
-        password: env.DEMO_ADMIN_PASSWORD,
-      },
-      user: {
-        email: env.DEMO_USER_EMAIL,
-        password: env.DEMO_USER_PASSWORD,
-      },
-      googleEnabled: Boolean(env.GOOGLE_CLIENT_ID && env.GOOGLE_CLIENT_SECRET),
-    });
-  } catch (error) {
-    next(error);
-  }
-}
-
 export function googleAuthRedirect(
   _req: Request,
   res: Response,

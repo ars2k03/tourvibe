@@ -2,6 +2,7 @@
 
 import type { Category, TourDifficulty, TourFilters } from "@/types";
 import { Input } from "@/components/ui/input";
+import { selectControlClass } from "@/lib/utils";
 
 interface TourFiltersProps {
   filters: TourFilters;
@@ -17,7 +18,7 @@ export function TourFiltersPanel({
   onChange,
 }: TourFiltersProps) {
   return (
-    <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0F172A] p-4 shadow-sm">
+    <div className="rounded-2xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-[#0F172A] p-4 shadow-sm">
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <Input
           label="Search"
@@ -28,11 +29,11 @@ export function TourFiltersPanel({
           }
         />
         <div className="space-y-1.5">
-          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500">
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
             Category
           </label>
           <select
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm"
+            className={selectControlClass}
             value={filters.category ?? ""}
             onChange={(event) =>
               onChange({
@@ -51,11 +52,11 @@ export function TourFiltersPanel({
           </select>
         </div>
         <div className="space-y-1.5">
-          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500">
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
             Location
           </label>
           <select
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm"
+            className={selectControlClass}
             value={filters.location ?? ""}
             onChange={(event) =>
               onChange({
@@ -74,11 +75,11 @@ export function TourFiltersPanel({
           </select>
         </div>
         <div className="space-y-1.5">
-          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500">
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
             Sort
           </label>
           <select
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm"
+            className={selectControlClass}
             value={filters.sort ?? "newest"}
             onChange={(event) =>
               onChange({
@@ -95,11 +96,11 @@ export function TourFiltersPanel({
           </select>
         </div>
         <div className="space-y-1.5">
-          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500">
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
             Difficulty
           </label>
           <select
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm"
+            className={selectControlClass}
             value={filters.difficulty ?? ""}
             onChange={(event) =>
               onChange({

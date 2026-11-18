@@ -1,6 +1,5 @@
 import { Router } from "express";
 import {
-  getDemoCredentials,
   getMe,
   googleAuthCallback,
   googleAuthRedirect,
@@ -17,7 +16,6 @@ const router = Router();
 router.post("/register", register);
 router.post("/login", login);
 router.post("/logout", logout);
-router.get("/demo", getDemoCredentials);
 router.get("/google", googleAuthRedirect);
 router.get("/google/callback", googleAuthCallback);
 router.get("/me", protect, getMe);

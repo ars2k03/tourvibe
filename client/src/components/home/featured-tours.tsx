@@ -23,7 +23,7 @@ export function FeaturedTours() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
+            <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
               02 / Featured
             </p>
             <h2 className="mt-2 text-3xl font-semibold text-slate-900 dark:text-white">
@@ -32,7 +32,7 @@ export function FeaturedTours() {
           </div>
           <Link
             href="/tours"
-            className="text-sm font-semibold text-[#0B1E3D] dark:text-amber-300"
+            className="text-sm font-semibold text-[#0B1E3D] transition-colors duration-200 hover:text-[#152E59] dark:text-amber-300 dark:hover:text-amber-200 focus-visible:outline-none focus-visible:underline"
           >
             View all tours →
           </Link>

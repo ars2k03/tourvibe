@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
@@ -7,7 +9,7 @@
   --border: #e2e8f0;
   --brand: #0b1e3d;
   --brand-hover: #152e59;
-  --muted: #64748b;
+  --muted: #475569;
   --amber: #f59e0b;
 }
 
@@ -30,8 +32,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
-* {
-  border-color: var(--border);
+@layer base {
+  * {
+    border-color: var(--border);
+  }
 }
 
 html {
@@ -46,4 +50,63 @@ body {
 
 .font-editorial {
   font-family: var(--font-playfair), ui-serif, Georgia, serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand) 18%, white);
+  color: var(--foreground);
+}
+
+.dark ::selection {
+  background: color-mix(in srgb, var(--amber) 28%, transparent);
+  color: var(--foreground);
+}
+
+a,
+button,
+[role="button"],
+summary,
+label[for],
+select,
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[aria-disabled="true"],
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.dark :focus-visible {
+  outline-color: var(--amber);
+}
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="button"]):not([type="submit"]):not([type="reset"]),
+textarea {
+  cursor: text;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

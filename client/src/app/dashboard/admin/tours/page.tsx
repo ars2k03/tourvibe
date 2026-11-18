@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import type { Tour } from "@/types";
@@ -47,13 +46,13 @@ export default function AdminToursPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-semibold">Manage tours</h1>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Create, review, and archive expedition packages.
           </p>
         </div>
-        <Link href="/dashboard/admin/tours/create">
-          <Button>Create tour</Button>
-        </Link>
+        <Button onClick={() => router.push("/dashboard/admin/tours/create")}>
+          Create tour
+        </Button>
       </div>
       <DataTable<Tour>
         rows={tours}
@@ -75,16 +74,22 @@ export default function AdminToursPage() {
             header: "Actions",
             render: (row) => (
               <div className="flex flex-wrap gap-2">
-                <Link href={`/tours/${row._id}`}>
-                  <Button size="sm" variant="secondary">
-                    View
-                  </Button>
-                </Link>
-                <Link href={`/dashboard/admin/tours/${row._id}/edit`}>
-                  <Button size="sm" variant="secondary">
-                    Edit
-                  </Button>
-                </Link>
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  onClick={() => router.push(`/tours/${row._id}`)}
+                >
+                  View
+                </Button>
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  onClick={() =>
+                    router.push(`/dashboard/admin/tours/${row._id}/edit`)
+                  }
+                >
+                  Edit
+                </Button>
                 <Button
                   size="sm"
                   variant="danger"

@@ -33,14 +33,17 @@ export function BlogPreview() {
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mb-8 flex items-end justify-between gap-4">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
             05 / Journal
           </p>
           <h2 className="mt-2 text-3xl font-semibold text-slate-900 dark:text-white">
             Field notes from Bangladesh
           </h2>
         </div>
-        <Link href="/blog" className="text-sm font-semibold text-[#0B1E3D] dark:text-amber-300">
+        <Link
+          href="/blog"
+          className="text-sm font-semibold text-[#0B1E3D] transition-colors duration-200 hover:text-[#152E59] dark:text-amber-300 dark:hover:text-amber-200 focus-visible:outline-none focus-visible:underline"
+        >
           Read journal →
         </Link>
       </div>
@@ -48,7 +51,7 @@ export function BlogPreview() {
         {posts.map((post) => (
           <article
             key={post.title}
-            className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0F172A]"
+            className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0F172A] transition-shadow duration-300 hover:shadow-md"
           >
             <div className="relative aspect-[16/10]">
               <Image src={post.image} alt={post.title} fill className="object-cover" sizes="33vw" />
@@ -60,7 +63,7 @@ export function BlogPreview() {
               <h3 className="mt-2 text-lg font-semibold text-slate-900 dark:text-white">
                 {post.title}
               </h3>
-              <p className="mt-2 text-sm text-slate-500">{post.excerpt}</p>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{post.excerpt}</p>
             </div>
           </article>
         ))}

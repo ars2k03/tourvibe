@@ -9,7 +9,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0F172A] shadow-sm",
+        "rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0F172A] shadow-sm transition-shadow duration-300",
         className,
       )}
       {...props}
@@ -35,7 +35,7 @@ export function CardHeader({
           {title}
         </h3>
         {description ? (
-          <p className="mt-1 text-sm text-slate-500">{description}</p>
+          <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{description}</p>
         ) : null}
       </div>
       {action}

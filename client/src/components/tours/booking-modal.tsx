@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/use-auth";
 import { createBookingRequest } from "@/services/booking-service";
 import { getErrorMessage } from "@/services/api-client";
-import { discountedPrice, formatPrice } from "@/lib/utils";
+import { discountedPrice, fieldControlClass, formatPrice } from "@/lib/utils";
 import type { Tour } from "@/types";
 
 interface BookingModalProps {
@@ -57,7 +57,7 @@ export function BookingModal({ open, onClose, tour }: BookingModalProps) {
   return (
     <Modal open={open} onClose={onClose} title="Request booking">
       <form className="space-y-4" onSubmit={handleSubmit}>
-        <p className="text-sm text-slate-500">{tour.title}</p>
+        <p className="text-sm text-slate-600 dark:text-slate-400">{tour.title}</p>
         <Input
           label="Guests"
           type="number"
@@ -75,11 +75,15 @@ export function BookingModal({ open, onClose, tour }: BookingModalProps) {
           required
         />
         <div className="space-y-1.5">
-          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500">
+          <label
+            htmlFor="booking-special-requests"
+            className="block cursor-pointer text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400"
+          >
             Special requests
           </label>
           <textarea
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm"
+            id="booking-special-requests"
+            className={fieldControlClass}
             rows={3}
             value={specialRequests}
             onChange={(event) => setSpecialRequests(event.target.value)}

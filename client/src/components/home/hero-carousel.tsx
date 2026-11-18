@@ -69,7 +69,7 @@ export function HeroCarousel() {
                 className="object-cover"
                 sizes="100vw"
               />
-              <div className="absolute inset-0 bg-[#0B1E3D]/55" />
+              <div className="absolute inset-0 bg-[#0B1E3D]/65" />
               <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 sm:px-6 lg:px-8">
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-amber-300">
                   TourVibe Expeditions
@@ -86,13 +86,13 @@ export function HeroCarousel() {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
                     href={slide.href}
-                    className="inline-flex items-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-[#0B1E3D] shadow-sm hover:bg-slate-100"
+                    className="inline-flex items-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-[#0B1E3D] shadow-sm transition-colors duration-200 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1E3D]"
                   >
                     {slide.cta}
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex items-center rounded-lg border border-white/40 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10"
+                    className="inline-flex items-center rounded-lg border border-white/70 px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                   >
                     Talk to travel desk
                   </Link>
@@ -107,7 +107,7 @@ export function HeroCarousel() {
         <button
           type="button"
           aria-label="Previous slide"
-          className="rounded-full bg-white/90 p-2 text-[#0B1E3D]"
+          className="cursor-pointer rounded-full bg-white/90 p-2 text-[#0B1E3D] transition-colors duration-200 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           onClick={() => emblaApi?.scrollPrev()}
         >
           <ChevronLeft className="h-4 w-4" />
@@ -118,8 +118,9 @@ export function HeroCarousel() {
               key={slide.title}
               type="button"
               aria-label={`Go to slide ${i + 1}`}
-              className={`h-2.5 w-2.5 rounded-full ${
-                i === index ? "bg-white" : "bg-white/40"
+              aria-current={i === index ? "true" : undefined}
+              className={`h-2.5 w-2.5 cursor-pointer rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                i === index ? "bg-white scale-110" : "bg-white/40 hover:bg-white/70"
               }`}
               onClick={() => emblaApi?.scrollTo(i)}
             />
@@ -128,7 +129,7 @@ export function HeroCarousel() {
         <button
           type="button"
           aria-label="Next slide"
-          className="rounded-full bg-white/90 p-2 text-[#0B1E3D]"
+          className="cursor-pointer rounded-full bg-white/90 p-2 text-[#0B1E3D] transition-colors duration-200 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           onClick={() => emblaApi?.scrollNext()}
         >
           <ChevronRight className="h-4 w-4" />

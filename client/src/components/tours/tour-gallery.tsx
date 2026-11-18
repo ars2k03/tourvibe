@@ -33,13 +33,21 @@ export function TourGallery({
             key={image}
             type="button"
             onClick={() => setActive(index)}
-            className={`relative aspect-[16/10] overflow-hidden rounded-xl border ${
+            aria-label={`Show gallery image ${index + 1}`}
+            aria-pressed={active === index}
+            className={`relative aspect-[16/10] cursor-pointer overflow-hidden rounded-xl border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1E3D] dark:focus-visible:ring-amber-400 ${
               active === index
-                ? "border-[#0B1E3D]"
-                : "border-slate-200 dark:border-slate-800"
+                ? "border-[#0B1E3D] ring-1 ring-[#0B1E3D] dark:border-amber-400 dark:ring-amber-400"
+                : "border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-500"
             }`}
           >
-            <Image src={image} alt="" fill className="object-cover" sizes="120px" />
+            <Image
+              src={image}
+              alt=""
+              fill
+              className="object-cover transition duration-300 hover:scale-105"
+              sizes="120px"
+            />
           </button>
         ))}
       </div>

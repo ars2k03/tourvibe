@@ -35,7 +35,7 @@ export function DynamicStats() {
             <p className="font-mono text-3xl font-semibold text-[#0B1E3D] dark:text-white">
               {item.value}
             </p>
-            <p className="mt-1 text-sm text-slate-500">{item.label}</p>
+            <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{item.label}</p>
           </div>
         ))}
       </div>

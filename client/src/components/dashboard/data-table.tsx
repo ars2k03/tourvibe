@@ -93,7 +93,7 @@ export function DataTable<T extends { _id?: string; id?: string }>({
       ) : null}
 
       {paged.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 px-4 py-10 text-center text-sm text-slate-500">
+        <div className="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 px-4 py-10 text-center text-sm text-slate-600 dark:text-slate-400">
           {emptyMessage}
         </div>
       ) : (
@@ -108,7 +108,7 @@ export function DataTable<T extends { _id?: string; id?: string }>({
                     ) : (
                       <button
                         type="button"
-                        className="inline-flex items-center gap-1"
+                        className="inline-flex cursor-pointer items-center gap-1 rounded transition-colors duration-200 hover:text-[#0B1E3D] dark:hover:text-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1E3D] dark:focus-visible:ring-amber-400"
                         onClick={() => toggleSort(column.key)}
                       >
                         {column.header}

@@ -42,7 +42,7 @@ export default function AdminUsersPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-semibold">Manage users</h1>
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-slate-600 dark:text-slate-400">
           Review traveler accounts and promote trusted operators to admin.
         </p>
       </div>

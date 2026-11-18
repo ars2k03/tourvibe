@@ -45,12 +45,12 @@ export default function BookingsPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-semibold">My bookings</h1>
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-slate-600 dark:text-slate-400">
           Review status and cancel pending or confirmed trips before departure.
         </p>
       </div>
       {loading ? (
-        <p className="text-sm text-slate-500">Loading bookings...</p>
+        <p className="text-sm text-slate-600 dark:text-slate-400">Loading bookings...</p>
       ) : (
         <DataTable<Booking>
           rows={bookings}

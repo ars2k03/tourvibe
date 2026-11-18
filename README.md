@@ -43,7 +43,7 @@ Exact package versions live in [`TECHSTACK.md`](./TECHSTACK.md). Folder layout l
 - Immersive landing page (hero carousel, categories, featured tours, live stats, FAQ, newsletter)
 - Tour explore with search, multi-filters, sorting, pagination, and skeletons
 - Tour details with gallery, itinerary, related tours, booking modal, and reviews
-- Auth: register / login, demo credentials, Google OAuth, protected dashboards
+- Auth: register / login, Google OAuth, protected dashboards
 - Traveler dashboard: overview, bookings, profile (image upload), settings
 - Admin desk: tours CRUD, users, categories, reports, Recharts analytics
 - Contact form persisted to MongoDB · light / dark theme · responsive UI
@@ -69,14 +69,16 @@ cd tourvibe
 ```bash
 cd server
 cp .env.example .env
-# fill MONGODB_URI, JWT_SECRET, CLIENT_URL, SERVER_URL, etc.
+# fill MONGODB_URI, JWT_SECRET, CLIENT_URL, SERVER_URL,
+# ADMIN_EMAIL, ADMIN_PASSWORD (required), plus optional Google OAuth keys
 npm install
 npm run dev
 ```
 
 API → `http://localhost:5000`
 
-Seed data loads automatically on first boot when the database is empty.
+On first boot (empty DB), categories/tours seed automatically.  
+Admin is created from `ADMIN_EMAIL` / `ADMIN_PASSWORD` via `ensureAdminFromEnv()` (only if that email does not already exist).
 
 ### 3. Frontend
 
@@ -98,7 +100,7 @@ Copy the example files and fill values locally (examples stay empty on purpose):
 
 | File | Purpose |
 | :--- | :--- |
-| `server/.env.example` | API keys, MongoDB URI, JWT, Google OAuth, demo users |
+| `server/.env.example` | API keys, MongoDB URI, JWT, admin credentials, Google OAuth |
 | `client/.env.example` | `NEXT_PUBLIC_API_URL` |
 
 Never commit real `.env` files.
@@ -112,12 +114,15 @@ Never commit real `.env` files.
 
 ---
 
-## Demo accounts
+## Admin access
+
+Set `ADMIN_EMAIL` and `ADMIN_PASSWORD` in `server/.env`. Default values used in this project:
 
 | Role | Email | Password |
 | :--- | :--- | :--- |
 | Admin | `admin@tourvibe.com` | `Admin@123` |
-| Traveler | `traveler@tourvibe.com` | `Travel@123` |
+
+New travelers use **Register**. Promote users to admin from the admin users desk when needed.
 
 ---
 
@@ -177,7 +182,7 @@ Health check: `http://localhost:5000/api/health`
 2. Runtime: **Docker**
 3. Root Directory: `server`
 4. Dockerfile path: `./Dockerfile`
-5. Add env vars from `server/.env.render` (`MONGODB_URI`, `JWT_SECRET`, `CLIENT_URL`, `SERVER_URL`, Google keys, etc.)
+5. Add env vars from `server/.env.render` (`MONGODB_URI`, `JWT_SECRET`, `CLIENT_URL`, `SERVER_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`, Google keys, etc.)
 6. Deploy — public URL becomes `SERVER_URL` / Google callback host
 
 Set production `CLIENT_URL`, `SERVER_URL`, `MONGODB_URI`, `JWT_SECRET`, and `NEXT_PUBLIC_API_URL` on the respective hosts. Update Google redirect URIs for live domains.
@@ -194,7 +199,7 @@ Bug reports and feature requests use the templates under [`.github/ISSUE_TEMPLAT
 
 ## Author
 
-**Arafat Sohan (A R S)**  
+**A R S**  
 TourVibe — personal full-stack travel platform project.
 
 ---

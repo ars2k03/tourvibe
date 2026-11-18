@@ -28,7 +28,7 @@ export function FaqAccordion() {
   return (
     <section className="bg-[#F8FAFC] dark:bg-[#0A0F1D] py-16">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
           06 / FAQ
         </p>
         <h2 className="mt-2 text-3xl font-semibold text-slate-900 dark:text-white">
@@ -44,18 +44,19 @@ export function FaqAccordion() {
               >
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                  aria-expanded={isOpen}
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left transition-colors duration-200 hover:bg-slate-50 dark:hover:bg-slate-900/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0B1E3D] dark:focus-visible:ring-amber-400 rounded-2xl"
                   onClick={() => setOpen(isOpen ? -1 : index)}
                 >
                   <span className="font-medium text-slate-900 dark:text-white">
                     {item.q}
                   </span>
                   <ChevronDown
-                    className={`h-4 w-4 shrink-0 transition ${isOpen ? "rotate-180" : ""}`}
+                    className={`h-4 w-4 shrink-0 text-slate-600 dark:text-slate-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
                   />
                 </button>
                 {isOpen ? (
-                  <p className="border-t border-slate-200 dark:border-slate-800 px-5 py-4 text-sm leading-relaxed text-slate-500">
+                  <p className="border-t border-slate-200 dark:border-slate-800 px-5 py-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                     {item.a}
                   </p>
                 ) : null}

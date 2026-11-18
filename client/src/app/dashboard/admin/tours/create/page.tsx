@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/use-auth";
 import { createTourRequest, fetchCategories } from "@/services/tour-service";
+import { fieldControlClass, selectControlClass } from "@/lib/utils";
 import { getErrorMessage } from "@/services/api-client";
 
 export default function CreateTourPage() {
@@ -104,7 +105,7 @@ export default function CreateTourPage() {
     <div className="mx-auto max-w-3xl space-y-6">
       <div>
         <h1 className="text-2xl font-semibold">Create tour</h1>
-        <p className="text-sm text-slate-500">
+        <p className="text-sm text-slate-600 dark:text-slate-400">
           Publish a new expedition with pricing, media, and logistics.
         </p>
       </div>
@@ -113,11 +114,11 @@ export default function CreateTourPage() {
         <Input label="Location" value={form.location} onChange={(e) => update("location", e.target.value)} required />
         <Input label="Summary" value={form.summary} onChange={(e) => update("summary", e.target.value)} required />
         <div className="space-y-1.5">
-          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500">
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
             Description
           </label>
           <textarea
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm"
+            className={fieldControlClass}
             rows={5}
             value={form.description}
             onChange={(e) => update("description", e.target.value)}
@@ -131,11 +132,11 @@ export default function CreateTourPage() {
           <Input label="Price" type="number" value={form.price} onChange={(e) => update("price", Number(e.target.value))} />
         </div>
         <div className="space-y-1.5">
-          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500">
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
             Category
           </label>
           <select
-            className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm"
+            className={selectControlClass}
             value={form.category}
             onChange={(e) => update("category", e.target.value)}
           >
@@ -151,9 +152,10 @@ export default function CreateTourPage() {
         <Input label="Highlights (comma separated)" value={form.highlights} onChange={(e) => update("highlights", e.target.value)} />
         <Input label="Inclusions (comma separated)" value={form.inclusions} onChange={(e) => update("inclusions", e.target.value)} />
         <Input label="Exclusions (comma separated)" value={form.exclusions} onChange={(e) => update("exclusions", e.target.value)} />
-        <label className="flex items-center gap-2 text-sm">
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg px-1 py-1 text-sm transition-colors duration-200 hover:text-[#0B1E3D] dark:hover:text-amber-300">
           <input
             type="checkbox"
+            className="h-4 w-4 cursor-pointer rounded border-slate-300 text-[#0B1E3D] focus:ring-[#0B1E3D] dark:border-slate-600 dark:focus:ring-amber-400"
             checked={form.isFeatured}
             onChange={(e) => update("isFeatured", e.target.checked)}
           />

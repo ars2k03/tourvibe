@@ -23,7 +23,7 @@ export function ThemeToggle() {
         if (!mounted) return;
         setTheme(isDark ? "light" : "dark");
       }}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+      className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg border border-slate-300 dark:border-slate-700 text-slate-700 transition-colors duration-200 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1E3D] focus-visible:ring-offset-2 dark:focus-visible:ring-amber-400"
     >
       {mounted ? (
         isDark ? (

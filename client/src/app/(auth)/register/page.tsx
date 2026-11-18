@@ -40,7 +40,7 @@ export default function RegisterPage() {
       <h1 className="text-3xl font-semibold text-slate-900 dark:text-white">
         Join TourVibe
       </h1>
-      <p className="mt-2 text-sm text-slate-500">
+      <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
         Create a traveler account to book tours and leave verified reviews.
       </p>
       <form className="mt-8 space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -65,9 +65,12 @@ export default function RegisterPage() {
           Create account
         </Button>
       </form>
-      <p className="mt-6 text-sm text-slate-500">
+      <p className="mt-6 text-sm text-slate-600 dark:text-slate-400">
         Already registered?{" "}
-        <Link href="/login" className="font-semibold text-[#0B1E3D] dark:text-amber-300">
+        <Link
+          href="/login"
+          className="font-semibold text-[#0B1E3D] transition-colors duration-200 hover:text-[#152E59] dark:text-amber-300 dark:hover:text-amber-200 focus-visible:outline-none focus-visible:underline"
+        >
           Login
         </Link>
       </p>

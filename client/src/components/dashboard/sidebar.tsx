@@ -39,7 +39,7 @@ export function DashboardSidebar() {
 
   return (
     <aside className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0F172A] p-3 lg:w-64 lg:shrink-0">
-      <p className="px-3 py-2 font-mono text-[11px] uppercase tracking-wider text-slate-500">
+      <p className="px-3 py-2 font-mono text-[11px] uppercase tracking-wider text-slate-600 dark:text-slate-400">
         {user?.role === "admin" ? "Admin" : "Traveler"} menu
       </p>
       <nav className="space-y-1">
@@ -52,7 +52,7 @@ export function DashboardSidebar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium transition",
+                "flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1E3D] focus-visible:ring-offset-2 dark:focus-visible:ring-amber-400",
                 active
                   ? "bg-[#0B1E3D] text-white"
                   : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800",

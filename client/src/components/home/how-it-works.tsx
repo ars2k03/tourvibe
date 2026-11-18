@@ -22,7 +22,7 @@ export function HowItWorks() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mb-10 max-w-2xl">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
           03 / Process
         </p>
         <h2 className="mt-2 text-3xl font-semibold text-slate-900 dark:text-white">
@@ -37,14 +37,14 @@ export function HowItWorks() {
           >
             <div className="flex items-center justify-between">
               <step.icon className="h-6 w-6 text-[#0B1E3D] dark:text-amber-300" />
-              <span className="font-mono text-xs text-slate-400">
+              <span className="font-mono text-xs text-slate-500 dark:text-slate-400">
                 0{index + 1}
               </span>
             </div>
             <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">
               {step.title}
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-500">
+            <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
               {step.body}
             </p>
           </div>

@@ -11,10 +11,10 @@ export function StatCard({
   icon?: ReactNode;
 }) {
   return (
-    <Card className="p-5">
+    <Card className="p-5 hover:shadow-md">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
             {label}
           </p>
           <p className="mt-2 font-mono text-2xl font-semibold text-slate-900 dark:text-white">

@@ -31,11 +31,18 @@ export function Dropdown({
 
   return (
     <div className="relative" ref={ref}>
-      <button type="button" onClick={() => setOpen((value) => !value)}>
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="menu"
+        onClick={() => setOpen((value) => !value)}
+        className="cursor-pointer rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1E3D] focus-visible:ring-offset-2 dark:focus-visible:ring-amber-400"
+      >
         {trigger}
       </button>
       {open ? (
         <div
+          role="menu"
           className={cn(
             "absolute z-50 mt-2 min-w-[200px] rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#0F172A] p-2 shadow-md",
             align === "right" ? "right-0" : "left-0",
@@ -62,9 +69,10 @@ export function DropdownItem({
   return (
     <button
       type="button"
+      role="menuitem"
       onClick={onClick}
       className={cn(
-        "flex w-full items-center rounded-lg px-3 py-2 text-left text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800",
+        "flex w-full cursor-pointer items-center rounded-lg px-3 py-2 text-left text-sm text-slate-700 dark:text-slate-200 transition-colors duration-200 hover:bg-slate-100 dark:hover:bg-slate-800 focus-visible:outline-none focus-visible:bg-slate-100 dark:focus-visible:bg-slate-800",
         className,
       )}
     >

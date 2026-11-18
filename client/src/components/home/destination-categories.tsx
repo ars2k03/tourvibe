@@ -21,13 +21,13 @@ export function DestinationCategories() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mb-8 max-w-2xl">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
           01 / Destinations
         </p>
         <h2 className="mt-2 text-3xl font-semibold text-slate-900 dark:text-white">
           Choose your next <em className="font-serif italic">horizon</em>
         </h2>
-        <p className="mt-3 text-slate-500">
+        <p className="mt-3 text-slate-600 dark:text-slate-400">
           Four curated lanes across Bangladesh — hills, coast, wetlands, and tea
           country — each with guided itineraries and local expertise.
         </p>
@@ -44,7 +44,7 @@ export function DestinationCategories() {
             <Link
               key={category._id}
               href={`/tours?category=${category._id}`}
-              className="group relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800"
+              className="group relative overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 transition-shadow duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1E3D] focus-visible:ring-offset-2 dark:focus-visible:ring-amber-400"
             >
               <div className="relative aspect-[4/5]">
                 <Image

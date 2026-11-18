@@ -61,13 +61,13 @@ export function ToursExplorer() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="mb-8">
-        <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-500">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-slate-600 dark:text-slate-400">
           Explore
         </p>
         <h1 className="mt-2 text-3xl font-semibold text-slate-900 dark:text-white">
           All expeditions
         </h1>
-        <p className="mt-2 max-w-2xl text-slate-500">
+        <p className="mt-2 max-w-2xl text-slate-600 dark:text-slate-400">
           Search, filter, and sort guided journeys across Bangladesh with live
           availability and transparent pricing.
         </p>
@@ -88,7 +88,7 @@ export function ToursExplorer() {
             ))}
           </div>
         ) : tours.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-slate-300 px-6 py-16 text-center text-slate-500">
+          <div className="rounded-2xl border border-dashed border-slate-300 px-6 py-16 text-center text-slate-600 dark:text-slate-400">
             No tours match these filters. Try widening your search.
           </div>
         ) : (
