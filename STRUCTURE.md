@@ -154,7 +154,8 @@ client/
 │   │   └── review.ts
 │   └── lib/
 │       ├── utils.ts
-│       └── validators.ts
+│       ├── validators.ts
+│       └── demo-credentials.ts
 ├── .env.example
 ├── next.config.ts
 ├── tsconfig.json
@@ -207,6 +208,7 @@ server/
 │   │   ├── apiResponse.ts
 │   │   ├── validators.ts
 │   │   ├── ensureAdmin.ts
+│   │   ├── ensureDemoTraveler.ts
 │   │   └── seedData.ts
 │   ├── app.ts
 │   └── index.ts

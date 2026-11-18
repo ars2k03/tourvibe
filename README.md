@@ -114,15 +114,16 @@ Never commit real `.env` files.
 
 ---
 
-## Admin access
+## Demo access
 
-Set `ADMIN_EMAIL` and `ADMIN_PASSWORD` in `server/.env`. Default values used in this project:
+Set `ADMIN_EMAIL` and `ADMIN_PASSWORD` in `server/.env`. On boot the API ensures both demo accounts below exist. The login page also has **Demo traveler** / **Demo admin** buttons that auto-fill credentials.
 
 | Role | Email | Password |
 | :--- | :--- | :--- |
+| Traveler | `traveler@tourvibe.com` | `Traveler@123` |
 | Admin | `admin@tourvibe.com` | `Admin@123` |
 
-New travelers use **Register**. Promote users to admin from the admin users desk when needed.
+New travelers can also use **Register**. Promote users to admin from the admin users desk when needed.
 
 ---
 

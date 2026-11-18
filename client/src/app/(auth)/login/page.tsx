@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/hooks/use-auth";
+import { DEMO_ADMIN, DEMO_TRAVELER } from "@/lib/demo-credentials";
 import { loginSchema } from "@/lib/validators";
 import { getGoogleAuthUrl, getMeRequest } from "@/services/auth-service";
 import { getErrorMessage } from "@/services/api-client";
@@ -29,6 +30,7 @@ function LoginFormView() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
@@ -89,6 +91,18 @@ function LoginFormView() {
     }
   }
 
+  function fillDemoCredentials(role: "traveler" | "admin") {
+    const credentials = role === "admin" ? DEMO_ADMIN : DEMO_TRAVELER;
+    setValue("email", credentials.email, {
+      shouldDirty: true,
+      shouldValidate: true,
+    });
+    setValue("password", credentials.password, {
+      shouldDirty: true,
+      shouldValidate: true,
+    });
+  }
+
   function continueWithGoogle() {
     if (googleLoading || oauthLoading) return;
     setGoogleLoading(true);
@@ -142,9 +156,30 @@ function LoginFormView() {
         </Button>
       </form>
 
+      <div className="mt-3 grid grid-cols-2 gap-2">
+        <Button
+          type="button"
+          variant="secondary"
+          className="w-full"
+          disabled={isSubmitting || googleLoading}
+          onClick={() => fillDemoCredentials("traveler")}
+        >
+          Demo traveler
+        </Button>
+        <Button
+          type="button"
+          variant="secondary"
+          className="w-full"
+          disabled={isSubmitting || googleLoading}
+          onClick={() => fillDemoCredentials("admin")}
+        >
+          Demo admin
+        </Button>
+      </div>
+
       <Button
         type="button"
-        variant="secondary"
+        variant="ghost"
         className="mt-3 w-full"
         loading={googleLoading}
         disabled={isSubmitting}

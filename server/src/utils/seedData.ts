@@ -21,16 +21,28 @@ export async function seedDatabase(): Promise<void> {
     Contact.deleteMany({}),
   ]);
 
-  await User.create({
-    name: "TourVibe Admin",
-    email: env.ADMIN_EMAIL,
-    password: env.ADMIN_PASSWORD,
-    role: "admin",
-    phone: "+8801711001122",
-    bio: "TourVibe operations lead based in Dhaka.",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop",
-  });
+  await User.create([
+    {
+      name: "TourVibe Admin",
+      email: env.ADMIN_EMAIL,
+      password: env.ADMIN_PASSWORD,
+      role: "admin",
+      phone: "+8801711001122",
+      bio: "TourVibe operations lead based in Dhaka.",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop",
+    },
+    {
+      name: "Ayesha Rahman",
+      email: "traveler@tourvibe.com",
+      password: "Traveler@123",
+      role: "user",
+      phone: "+8801811223344",
+      bio: "Dhaka-based traveler exploring hill tracts and coastal weekends with TourVibe.",
+      avatar:
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&h=200&fit=crop",
+    },
+  ]);
 
   const categories = await Category.create([
     {
