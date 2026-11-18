@@ -20,10 +20,18 @@ export default function DashboardLayout({
     }
   }, [loading, user, router]);
 
-  if (loading || !user) {
+  if (loading) {
     return (
       <div className="mx-auto max-w-7xl px-4 py-10">
         <Skeleton className="h-96 w-full" />
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="mx-auto flex min-h-[40vh] max-w-7xl items-center justify-center px-4 py-10">
+        <span className="h-8 w-8 animate-spin rounded-full border-2 border-[#0B1E3D] border-r-transparent dark:border-amber-400 dark:border-r-transparent" />
       </div>
     );
   }

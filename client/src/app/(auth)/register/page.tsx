@@ -27,11 +27,15 @@ export default function RegisterPage() {
 
   async function onSubmit(values: RegisterForm) {
     try {
-      await registerUser(values.name, values.email, values.password);
-      toast.success("Account created successfully");
-      router.push("/dashboard");
+      const user = await registerUser(values.name, values.email, values.password);
+      toast.success(`Welcome to TourVibe, ${user.name.split(" ")[0]}`, {
+        id: "auth-welcome",
+      });
+      router.replace("/dashboard");
     } catch (error) {
-      toast.error(getErrorMessage(error, "Registration failed"));
+      toast.error(getErrorMessage(error, "Registration failed"), {
+        id: "auth-welcome",
+      });
     }
   }
 
